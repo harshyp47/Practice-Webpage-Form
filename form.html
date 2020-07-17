@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	
+</head>
+<body>
+
+<div class="container">
+	<br>
+	
+		<form id="form">
+	  <div class="form-row">
+	    <div class="form-group col-md-6">
+	      <label id="explabel" for="expertise"><b>Expertise Area 1:</b></label>
+	      <input type="text" class="form-control" id="expertise" placeholder="eg. Java">
+	    </div>
+	    
+	  </div>
+
+
+	  <label for="exp"><b>Experience:</b></label>
+
+	<div class="form-group row">
+	    
+	    <div class="col-sm-1">
+	      <input type="text" class="form-control" id="yrs">
+	    </div>
+	    <label for="yrs" class="col-sm-0 col-form-label">Yrs</label>
+
+	    <div class="col-sm-1">
+	      <input type="text" class="form-control" id="months">
+	    </div>
+	    <label for="months" class="col-sm-0 col-form-label">Months</label>
+	</div>
+
+	<label for="exp"><b>Training/Teaching Rates:</b></label>
+
+	<div class="form-group row">
+	    
+	    
+	    <label for="remote" class="col-sm-1 col-form-label">Remote</label>
+	    
+  		<div class="col-sm-2">
+	      <input type="text" class="form-control" id="ruppesremote" placeholder="Rs.">
+	    </div>
+	  <div class="form-group col-md-0">
+	    <select id="inputtyperemote" class="form-control">
+        <option selected>Per Topic</option>
+        <option>Per Hour</option>
+        <option>Per Chapter</option>
+        
+      </select>
+  		</div>
+
+  	</div>
+
+
+  	<div class="form-group row">
+	    
+	    
+	    <label for="centre" class="col-sm-1 col-form-label">Centre</label>
+	    
+  		<div class="col-sm-2">
+	      <input type="text" class="form-control" id="ruppescentre" placeholder="Rs.">
+	    </div>
+	  <div class="form-group col-md-0">
+	    <select id="inputtypecentre" class="form-control">
+        <option selected>Per Week</option>
+        <option>Per Month</option>
+        
+        
+      </select>
+  		</div>
+
+  	</div>
+
+
+  	<div class="form-group row">
+	    
+	    
+	    <label for="lp" class="col-sm-1 col-form-label">Learner's Place</label>
+	    
+  		<div class="col-sm-2">
+	      <input type="text" class="form-control" id="ruppeslp" placeholder="Rs.">
+	    </div>
+	  <div class="form-group col-md-0">
+	    <select id="inputtypelp" class="form-control">
+        <option selected>Per Hour</option>
+        <option >Per Class</option>
+        
+      </select>
+  		</div>
+
+  	</div>
+
+
+  	<div class="form-group row">
+	    
+	    
+	    <label for="mp" class="col-sm-1 col-form-label">My Place</label>
+	    
+  		<div class="col-sm-2">
+	      <input type="text" class="form-control" id="ruppesmp" placeholder="Rs.">
+	    </div>
+	  <div class="form-group col-md-0">
+	    <select id="inputtypemp" class="form-control">
+        <option selected>Per Hour</option>
+        <option>Per Class</option>
+        
+        
+      </select>
+  		</div>
+
+  	</div>
+
+  	<div class="addmore">
+  		<button onclick="saveDATA()" type="button" class="btn btn-info">Add more expertise area field</button>
+
+  	</div>
+  	<br>
+
+  	  <button onclick="submitDATA()" type="button" class="btn btn-success">Submit</button>
+	  
+	  <button type="button" class="btn btn-danger">Close</button>
+		</form>
+
+
+</div>
+
+
+
+<script>
+
+		var finalDATA=[];
+		var count=0;	
+		function saveDATA(){
+			var tempDATA={
+				"code":document.getElementById("expertise").value,
+				"title":"",
+				"expyrs": document.getElementById("yrs").value,
+				"expmonths":document.getElementById("months").value,
+				"rates":[
+							{
+								"mode":"Remote",
+								"charge":document.getElementById("ruppesremote").value,
+								"unit":document.getElementById("inputtyperemote").value,
+							},
+							{
+								"mode":"Centre",
+								"charge":document.getElementById("ruppescentre").value,
+								"unit":document.getElementById("inputtypecentre").value,
+							},
+							{
+								"mode":"Learner's Place",
+								"charge":document.getElementById("ruppeslp").value,
+								"unit":document.getElementById("inputtypelp").value,
+							},
+							{
+								"mode":"My Place",
+								"charge":document.getElementById("ruppesmp").value,
+								"unit":document.getElementById("inputtypemp").value,
+							}
+
+
+						]
+
+			}
+
+
+
+			finalDATA[count] = tempDATA;
+			count = count+1;
+			document.getElementById("explabel").innerHTML="<b> Expertise Area "+(count+1)+" :</b>";
+
+			
+		}
+
+
+		function submitDATA(){
+			var tempDATA={
+				"code":document.getElementById("expertise").value,
+				"title":"",
+				"expyrs": document.getElementById("yrs").value,
+				"expmonths":document.getElementById("months").value,
+				"rates":[
+							{
+								"mode":"Remote",
+								"charge":document.getElementById("ruppesremote").value,
+								"unit":document.getElementById("inputtyperemote").value,
+							},
+							{
+								"mode":"Centre",
+								"charge":document.getElementById("ruppescentre").value,
+								"unit":document.getElementById("inputtypecentre").value,
+							},
+							{
+								"mode":"Learner's Place",
+								"charge":document.getElementById("ruppeslp").value,
+								"unit":document.getElementById("inputtypelp").value,
+							},
+							{
+								"mode":"My Place",
+								"charge":document.getElementById("ruppesmp").value,
+								"unit":document.getElementById("inputtypemp").value,
+							}
+
+
+						]
+
+			}
+
+
+
+			finalDATA[count] = tempDATA;
+			count = count+1;
+			localStorage.setItem('FinalDATA',JSON.stringify(finalDATA));
+			console.log(finalDATA);
+			window.open("jsondisp.html");
+		}
+
+		
+</script>
+
+
+</body>
+</html>

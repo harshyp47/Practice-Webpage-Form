@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<style>
+			.bg{
+				width: 100%;
+				height: 750px;
+				filter: brightness(50%);
+				z-index: -10;
+				
+
+			}
+
+			.title{
+				color: white;
+				position: absolute;
+				z-index: 10;
+				font-family: Arial, Helvetica, sans-serif;
+				margin-top: 20%;
+				margin-left: 35%;
+			}
+				.title2{
+				color: white;
+				position: absolute;
+				z-index: 10;
+				font-family: Arial, Helvetica, sans-serif;
+				margin-top: 25%;
+				margin-left: 40%;
+			}
+
+			.clickme{
+				
+				z-index: 11;
+				margin-top: -250px;
+			}
+
+			.bg-modal{
+				width: 100%;
+				height: 100%;
+				background-color: rgbo(0,0,0,0.7);
+				position: absolute;
+				top:0;
+				display: none;
+				justify-content: center;
+				align-items: center;
+				z-index: 15;
+
+				
+			}
+
+			.modal-content{
+				width: 500px;
+				height: 650px;
+				background-color: white;
+				border-radius: 5px;
+
+
+
+			}
+
+			#form{
+				margin-left: 8%;
+				margin-right: -80%;
+				
+			}
+	</style>
+	<title>Welcome</title>
+</head>
+<body>
+
+	<h1 class="title"> <b>WELCOME TO EDUSURE </b></h1>
+	<h5 class="title2"> Click below to enter expertise data </h5>
+	<img class="bg" src="abc.jpg" alt="abc-wallpaper">
+	<div class="clickme">
+		<center><button type="button" id="clickhere" class="btn btn-primary">Click here</button></center>
+	</div>
+
+
+
+	<div class="bg-modal" id="modalbox">
+		<div class="modal-content">
+
+					<div class="container">
+	<br>
+	
+		<form id="form">
+	  <div class="form-row">
+	    <div class="form-group col-md-6">
+	      <label id="explabel" for="expertise"><b>Expertise Area 1:</b></label>
+	      <input type="text" class="form-control" id="expertise" placeholder="eg. Java">
+	    </div>
+	    
+	  </div>
+
+
+	  <label for="exp"><b>Experience:</b></label>
+
+	<div class="form-group row">
+	    
+	    <div class="col-sm-1">
+	      <input type="text" class="form-control" id="yrs">
+	    </div>
+	    <label for="yrs" class="col-sm-0 col-form-label">Yrs</label>
+
+	    <div class="col-sm-1">
+	      <input type="text" class="form-control" id="months">
+	    </div>
+	    <label for="months" class="col-sm-0 col-form-label">Months</label>
+	</div>
+
+	<label for="exp"><b>Training/Teaching Rates:</b></label>
+
+	<div class="form-group row">
+	    
+	    
+	    <label for="remote" class="col-sm-1 col-form-label">Remote</label>
+	    
+  		<div class="col-sm-2">
+	      <input type="text" class="form-control" id="ruppesremote" placeholder="Rs.">
+	    </div>
+	  <div class="form-group col-md-0">
+	    <select id="inputtyperemote" class="form-control">
+        <option selected>Per Topic</option>
+        <option>Per Hour</option>
+        <option>Per Chapter</option>
+        
+      </select>
+  		</div>
+
+  	</div>
+
+
+  	<div class="form-group row">
+	    
+	    
+	    <label for="centre" class="col-sm-1 col-form-label">Centre</label>
+	    
+  		<div class="col-sm-2">
+	      <input type="text" class="form-control" id="ruppescentre" placeholder="Rs.">
+	    </div>
+	  <div class="form-group col-md-0">
+	    <select id="inputtypecentre" class="form-control">
+        <option selected>Per Week</option>
+        <option>Per Month</option>
+        
+        
+      </select>
+  		</div>
+
+  	</div>
+
+
+  	<div class="form-group row">
+	    
+	    
+	    <label for="lp" class="col-sm-1 col-form-label">Learner's Place</label>
+	    
+  		<div class="col-sm-2">
+	      <input type="text" class="form-control" id="ruppeslp" placeholder="Rs.">
+	    </div>
+	  <div class="form-group col-md-0">
+	    <select id="inputtypelp" class="form-control">
+        <option selected>Per Hour</option>
+        <option >Per Class</option>
+        
+      </select>
+  		</div>
+
+  	</div>
+
+
+  	<div class="form-group row">
+	    
+	    
+	    <label for="mp" class="col-sm-1 col-form-label">My Place</label>
+	    
+  		<div class="col-sm-2">
+	      <input type="text" class="form-control" id="ruppesmp" placeholder="Rs.">
+	    </div>
+	  <div class="form-group col-md-0">
+	    <select id="inputtypemp" class="form-control">
+        <option selected>Per Hour</option>
+        <option>Per Class</option>
+        
+        
+      </select>
+  		</div>
+
+  	</div>
+
+  	<div class="addmore">
+  		<button onclick="saveDATA()" type="button" class="btn btn-info">Add more expertise area field</button>
+
+  	</div>
+  	<br>
+
+  	  <button onclick="submitDATA()" type="button" class="btn btn-success">Submit</button>
+	  
+	  <button type="button" id="closebox" class="btn btn-danger">Close</button>
+		</form>
+
+
+</div>
+
+			
+		</div>
+		
+	</div>
+	
+
+<script>
+
+		document.getElementById('clickhere').addEventListener('click',function(){
+			document.querySelector('.bg-modal').style.display='flex';
+		});
+
+		document.getElementById('closebox').addEventListener('click',function(){
+			document.querySelector('.bg-modal').style.display='none';
+		});
+	
+	
+</script>
+
+<script>
+
+		var finalDATA=[];
+		var count=0;	
+		function saveDATA(){
+			var tempDATA={
+				"code":document.getElementById("expertise").value,
+				"title":"",
+				"expyrs": document.getElementById("yrs").value,
+				"expmonths":document.getElementById("months").value,
+				"rates":[
+							{
+								"mode":"Remote",
+								"charge":document.getElementById("ruppesremote").value,
+								"unit":document.getElementById("inputtyperemote").value,
+							},
+							{
+								"mode":"Centre",
+								"charge":document.getElementById("ruppescentre").value,
+								"unit":document.getElementById("inputtypecentre").value,
+							},
+							{
+								"mode":"Learner's Place",
+								"charge":document.getElementById("ruppeslp").value,
+								"unit":document.getElementById("inputtypelp").value,
+							},
+							{
+								"mode":"My Place",
+								"charge":document.getElementById("ruppesmp").value,
+								"unit":document.getElementById("inputtypemp").value,
+							}
+
+
+						]
+
+			}
+
+
+
+			finalDATA[count] = tempDATA;
+			count = count+1;
+			document.getElementById("explabel").innerHTML="<b> Expertise Area "+(count+1)+" :</b>";
+			document.getElementById("form").reset();
+
+			
+		}
+
+
+		function submitDATA(){
+			var tempDATA={
+				"code":document.getElementById("expertise").value,
+				"title":"",
+				"expyrs": document.getElementById("yrs").value,
+				"expmonths":document.getElementById("months").value,
+				"rates":[
+							{
+								"mode":"Remote",
+								"charge":document.getElementById("ruppesremote").value,
+								"unit":document.getElementById("inputtyperemote").value,
+							},
+							{
+								"mode":"Centre",
+								"charge":document.getElementById("ruppescentre").value,
+								"unit":document.getElementById("inputtypecentre").value,
+							},
+							{
+								"mode":"Learner's Place",
+								"charge":document.getElementById("ruppeslp").value,
+								"unit":document.getElementById("inputtypelp").value,
+							},
+							{
+								"mode":"My Place",
+								"charge":document.getElementById("ruppesmp").value,
+								"unit":document.getElementById("inputtypemp").value,
+							}
+
+
+						]
+
+			}
+
+
+
+			finalDATA[count] = tempDATA;
+			
+			localStorage.setItem('FinalDATA',JSON.stringify(finalDATA));
+			console.log(finalDATA);
+			
+			window.open("jsondisp.html");
+		}
+
+		
+</script>
+</body>
+</html>
